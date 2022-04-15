@@ -1,4 +1,4 @@
-# EasyLeague
+# EasyLeague (Group 4)
 
 ## Contributions
 
