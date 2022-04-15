@@ -2,7 +2,7 @@
 
 ## Contributions
 
-**Aly Hirani (40%)**
+**Aly Hirani (Release 45%, Overall 40%)**
 - Root Layout (Tabs)
 - Some of the Login and Signup Screens
 - Firebase integration
@@ -17,7 +17,7 @@
 - Player statistics page
 - Dark mode
 
-**Daniel Deng (30%)**
+**Daniel Deng (Release 30%, Overall 30%)**
 - Mockups
 - Design planning
 - Create League Screen
@@ -26,15 +26,14 @@
 - Team Statistics page
 - Majority of Login and Signup screens
 
-**Shreyas Konana (25%)**
+**Shreyas Konana (Release 25%, Overall 25%)**
 - Pair programmed with Daniel
 
-**Ishan Phadke (5%)**
+**Ishan Phadke (Release 0%, Overall 5%)**
 - Pair programmed with Aly
 
 ## Deviations
-- We accomplished our plans to create functional pages (but limited in features) for the Leagues (Home) Screen, League Overview (League Home) Screen, and the Create League Screen.
-- Although the Login Screen was initially planned for the Beta release, we already added the ability to log in or sign up with an email and password.
+- We did everything for the Beta that we included in the proposal paper, plus we also did the Profile/Settings page, which was originally planned for the final release
 
 ## Notes
 - Ishan dropped the course
