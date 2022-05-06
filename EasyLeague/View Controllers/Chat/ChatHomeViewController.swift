@@ -26,8 +26,11 @@ class ChatHomeViewController: UIViewController {
     
     var leaguesListener: ListenerRegistration?
     
+    var userListener: ListenerRegistration?
+    
     deinit {
         leaguesListener?.remove()
+        userListener?.remove()
     }
 
     override func viewDidLoad() {
@@ -42,7 +45,7 @@ class ChatHomeViewController: UIViewController {
         
         constrainToSafeArea(leaguesCollection)
         
-        addListener()
+        addListeners()
     }
     
     override func viewDidLayoutSubviews() {
@@ -50,7 +53,7 @@ class ChatHomeViewController: UIViewController {
         configureLayout()
     }
     
-    func addListener() {
+    func addListeners() {
         leaguesListener = Firestore.firestore().leaguesQueryForUser(user.id).addSnapshotListener { querySnapshot, error in
             if let error = error {
                 self.presentSimpleAlert(title: "Database Error", message: error.localizedDescription)
@@ -60,6 +63,11 @@ class ChatHomeViewController: UIViewController {
                 }.sorted { lhs, rhs in lhs.name < rhs.name }
                 self.leaguesCollection.reloadData()
             }
+        }
+        userListener = Firestore.firestore().documentForUser(user.id).addSnapshotListener { documentSnapshot, error in
+            guard let snapshot = documentSnapshot else { return }
+            guard let user = try? snapshot.data(as: User.self) else { return }
+            self.user = user
         }
     }
     
