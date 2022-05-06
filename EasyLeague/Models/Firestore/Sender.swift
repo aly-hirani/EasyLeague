@@ -11,12 +11,10 @@ class Sender: Codable, SenderType {
     
     let senderId: String
     let displayName: String
-    let photoURL: String
     
     init(user: User) {
         self.senderId = user.id
         self.displayName = user.name
-        self.photoURL = user.photoURL
     }
     
 }

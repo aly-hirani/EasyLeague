@@ -10,6 +10,7 @@ import MessageKit
 import InputBarAccessoryView
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import Kingfisher
 
 class ChatViewController: MessagesViewController {
     
@@ -144,7 +145,11 @@ extension ChatViewController: MessagesDisplayDelegate {
         if isFromCurrentSender(message: message) || isSameSender(index: indexPath.section, displacement: 1) {
             avatarView.isHidden = true
         } else {
-            avatarView.kf.setImage(with: URL(string: messages[indexPath.section].senderPhotoURL), placeholder: UIImage(systemName: "photo.circle"))
+            Firestore.firestore().documentForUser(message.sender.senderId).getDocument(as: User.self) { result in
+                if case .success(let user) = result {
+                    avatarView.kf.setImage(with: URL(string: user.photoURL))
+                }
+            }
             avatarView.isHidden = false
         }
     }

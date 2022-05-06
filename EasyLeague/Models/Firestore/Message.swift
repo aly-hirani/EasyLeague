@@ -6,6 +6,8 @@
 //
 
 import MessageKit
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class Message: Codable, MessageType {
     
@@ -17,8 +19,6 @@ class Message: Codable, MessageType {
     
     var sender: SenderType { _sender }
     var kind: MessageKind { .text(_content) }
-    
-    var senderPhotoURL: String { _sender.photoURL }
     
     init(messageId: String, sender: Sender, content: String) {
         self.messageId = messageId
